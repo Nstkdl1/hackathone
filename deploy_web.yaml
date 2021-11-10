@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: test
+  labels:
+    app: test
+spec:
+  selector:
+    matchLabels:
+      project: apache
+  template:
+    metadata:
+      labels:
+        project: apache
+    spec:
+      containers: 
+      - name: apache
+        image: bogomol/dev:latest
+        ports:
+          - containerPort: 80
